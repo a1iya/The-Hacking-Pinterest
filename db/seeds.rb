@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+10.times do
+	user = User.create!(name: Faker::FunnyName.name)	
+end
+
+20.times do 
+	pin = Pin.create!(user_id: rand(1..10), url: Faker::Internet.url)
+end
+
+20.times do
+	comment = Comment.create!(user_id: rand(1..10), pin_id: rand(1..20), content: Faker::RickAndMorty.quote)
+end
